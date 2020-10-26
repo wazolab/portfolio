@@ -1,13 +1,15 @@
 <template>
   <div
-    class="h-screen rounded-b-3xl shadow-xl bg-gradient-to-r from-blue-300 to-blue-700 flex items-center"
+    class="HeroWrapper rounded-b-3xl shadow-xl bg-gradient-to-r from-blue-300 to-blue-700 flex items-center"
   >
-    <div class="rounded-3xl bg-white w-1/2 mx-auto p-6 shadow-xl text-center">
+    <div
+      class="rounded-3xl bg-white w-3/4 sm:w-1/2 max-w-lg mx-auto p-6 shadow-xl text-center"
+    >
       <Logo />
       <h1 class="font-mono text-2xl">
         wazo-lab.io
       </h1>
-      <div class="mt-4">
+      <div class="mt-4 hidden sm:block">
         <a
           href="#projects"
           target="_self"
@@ -33,4 +35,8 @@
 export default {};
 </script>
 
-<style></style>
+<style>
+.HeroWrapper {
+  height: 460px;
+}
+</style>
