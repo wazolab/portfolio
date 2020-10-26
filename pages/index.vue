@@ -1,8 +1,7 @@
 <template>
-  <div
-    class="h-screen bg-gradient-to-r from-blue-300 to-blue-700 flex items-center"
-  >
+  <div>
     <Hero />
+    <Grid />
   </div>
 </template>
 
@@ -10,4 +9,8 @@
 export default {};
 </script>
 
-<style></style>
+<style>
+html {
+  scroll-behavior: smooth;
+}
+</style>
