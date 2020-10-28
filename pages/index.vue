@@ -2,6 +2,7 @@
   <div>
     <Hero />
     <Grid />
+    <Contact />
   </div>
 </template>
 

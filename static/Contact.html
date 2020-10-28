@@ -1,0 +1,52 @@
+<form
+  class="w-3/4 sm:w-1/2 max-w-lg mx-auto p-6 rounded shadow-xl flex flex-col items-end bg-gradient-to-br from-indigo-800 to-blue-800"
+  name="contact"
+  method="POST"
+  data-netlify="true"
+  data-netlify-honeypot="bot-field"
+  hidden
+>
+  <input type="hidden" name="form-name" value="contact" />
+  <div class="flex flex-wrap -mx-3 mb-4">
+    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+      <label
+        class="block uppercase tracking-wide text-white text-xs font-bold mb-2"
+        for="grid-first-name"
+      >
+        Name
+      </label>
+      <input
+        class="appearance-none block w-full bg-gray-100 placeholder-gray-700 text-gray-700 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+        id="grid-first-name"
+        type="text"
+        placeholder="Jane Doe"
+      />
+    </div>
+    <div class="w-full md:w-1/2 px-3">
+      <label
+        class="block uppercase tracking-wide text-white text-xs font-bold mb-2"
+        for="grid-email"
+      >
+        Email
+      </label>
+      <input
+        class="appearance-none block w-full bg-gray-100 placeholder-gray-700 text-gray-700 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+        id="grid-email"
+        type="text"
+        placeholder="janedoe@example.com"
+      />
+    </div>
+  </div>
+
+  <textarea
+    rows="3"
+    class="w-full mb-4 bg-gray-100 appearance-none rounded py-2 px-4 placeholder-gray-700 text-gray-700 sm:text-sm sm:leading-5 focus:outline-none focus:bg-white"
+    placeholder="Hi, ..."
+  ></textarea>
+  <button
+    type="submit"
+    class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+  >
+    Submit
+  </button>
+</form>
