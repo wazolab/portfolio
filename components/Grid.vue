@@ -1,44 +1,47 @@
 <template>
   <div id="projects" class="container mx-auto p-8 sm:p-16">
     <h2 class="text-4xl mb-6">Projects</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- Filters Nav -->
-      <ul class="flex col-span-1 md:col-span-2 lg:col-span-3">
-        <li class="mr-3">
-          <button
-            :class="'btn ' + (filter === 'all' ? 'btn-active' : 'btn-ghost')"
-            @click="() => (filter = 'all')"
-          >
-            All
-          </button>
-        </li>
-        <li class="mr-3">
-          <button
-            :class="
-              'btn ' + (filter === 'freelance' ? 'btn-active' : 'btn-ghost')
-            "
-            @click="filter = 'freelance'"
-          >
-            Freelance
-          </button>
-        </li>
-        <li class="mr-3">
-          <button
-            :class="
-              'btn ' + (filter === 'company' ? 'btn-active' : 'btn-ghost')
-            "
-            @click="() => (filter = 'company')"
-          >
-            Company
-          </button>
-        </li>
-      </ul>
 
-      <!-- Grid -->
+    <!-- Filters Nav -->
+    <ul class="flex mb-8">
+      <li class="mr-3">
+        <button
+          :class="'btn ' + (filter === 'all' ? 'btn-active' : 'btn-ghost')"
+          @click="() => (filter = 'all')"
+        >
+          All
+        </button>
+      </li>
+      <li class="mr-3">
+        <button
+          :class="
+            'btn ' + (filter === 'freelance' ? 'btn-active' : 'btn-ghost')
+          "
+          @click="filter = 'freelance'"
+        >
+          Freelance
+        </button>
+      </li>
+      <li class="mr-3">
+        <button
+          :class="'btn ' + (filter === 'company' ? 'btn-active' : 'btn-ghost')"
+          @click="() => (filter = 'company')"
+        >
+          Company
+        </button>
+      </li>
+    </ul>
+
+    <!-- Grid -->
+    <transition-group
+      name="flip-grid"
+      tag="div"
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+    >
       <div
-        :key="index"
-        v-for="(project, index) in filteredData"
-        class="max-w-sm rounded overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out"
+        :key="project.title"
+        v-for="project in filteredData"
+        class="grid-item max-w-sm rounded overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out"
       >
         <a
           class="block h-full"
@@ -71,19 +74,20 @@
           </div>
         </a>
       </div>
-    </div>
+    </transition-group>
   </div>
 </template>
 
 <script>
 import projects from "../content/projects.json";
+import { shuffle } from "lodash";
 
 export default {
   computed: {
     filteredData() {
       if (this.filter === "all") return this.data;
 
-      return this.data.filter(o => o.type === this.filter);
+      return shuffle(this.data.filter(o => o.type === this.filter));
     }
   },
   data() {
@@ -91,6 +95,9 @@ export default {
       data: projects,
       filter: "all"
     };
+  },
+  mounted() {
+    this.data = shuffle(this.data);
   }
 };
 </script>
@@ -99,6 +106,20 @@ export default {
 .grid-item-thumbnail {
   max-height: 200px;
   object-fit: cover;
+}
+
+.grid-item {
+  transition: all 1s;
+}
+
+.flip-grid-enter,
+.flip-grid-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.flip-grid-leave-active {
+  position: absolute;
 }
 
 .btn {
