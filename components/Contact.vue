@@ -7,6 +7,7 @@
       method="POST"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
+      @submit.prevent="handleSubmit"
     >
       <input type="hidden" name="form-name" value="contact" />
       <div class="flex flex-wrap -mx-3 mb-4">
@@ -21,6 +22,8 @@
             class="appearance-none block w-full bg-gray-100 placeholder-gray-700 text-gray-700 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
             id="grid-first-name"
             type="text"
+            name="fullname"
+            v-model="form.fullname"
             placeholder="Jane Doe"
           />
         </div>
@@ -35,6 +38,8 @@
             class="appearance-none block w-full bg-gray-100 placeholder-gray-700 text-gray-700 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
             id="grid-email"
             type="text"
+            name="email"
+            v-model="form.email"
             placeholder="janedoe@example.com"
           />
         </div>
@@ -43,6 +48,8 @@
       <textarea
         rows="3"
         class="w-full mb-4 bg-gray-100 appearance-none rounded py-2 px-4 placeholder-gray-700 text-gray-700 sm:text-sm sm:leading-5 focus:outline-none focus:bg-white"
+        name="message"
+        v-model="form.message"
         placeholder="Hi, ..."
       ></textarea>
       <button
@@ -56,7 +63,41 @@
 </template>
 
 <script>
-export default {};
+import axios from "axios";
+
+export default {
+  data() {
+    return {
+      form: {
+        fullname: "",
+        email: "",
+        message: ""
+      }
+    };
+  },
+  methods: {
+    encode(data) {
+      return Object.keys(data)
+        .map(
+          key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
+        )
+        .join("&");
+    },
+    handleSubmit() {
+      const axiosConfig = {
+        header: { "Content-Type": "application/x-www-form-urlencoded" }
+      };
+      axios.post(
+        "/",
+        this.encode({
+          "form-name": "contact",
+          ...this.form
+        }),
+        axiosConfig
+      );
+    }
+  }
+};
 </script>
 
 <style></style>
