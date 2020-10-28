@@ -17,7 +17,10 @@
         feedback.hasError ? "Error !" : "Thanks !"
       }}</strong>
       <span class="block sm:inline">{{ feedback.message }}</span>
-      <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+      <span
+        class="absolute top-0 bottom-0 right-0 px-4 py-3"
+        @click="closeFeedback"
+      >
         <svg
           :class="
             (feedback.hasError ? 'text-red-500' : 'text-green-500') +
@@ -114,7 +117,7 @@ export default {
         fullname: "",
         email: "",
         message: "",
-        honeypot: null
+        honeypot: ""
       },
       showFeedback: false,
       feedback: {
@@ -153,7 +156,20 @@ export default {
         })
         .finally(() => {
           this.showFeedback = true;
+          this.form = {
+            fullname: "",
+            email: "",
+            message: "",
+            honeypot: ""
+          };
         });
+    },
+    closeFeedback() {
+      this.showFeedback = false;
+      this.feedback = {
+        hasError: false,
+        message: ""
+      };
     }
   }
 };
