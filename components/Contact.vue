@@ -1,5 +1,5 @@
 <template>
-  <div id="contact-me" class="container mx-auto p-16">
+  <div id="contact-me" class="container mx-auto p-8 sm:p-16">
     <h2 class="text-4xl mb-6">Contact me !</h2>
 
     <!-- Feedback Message -->
@@ -9,7 +9,7 @@
         (feedback.hasError
           ? 'bg-red-100 border-red-400 text-red-700'
           : 'bg-green-100 border-green-400 text-green-700') +
-          ' border px-4 py-3 rounded relative w-3/4 sm:w-1/2 max-w-lg mx-auto mb-2'
+          ' border px-4 py-3 rounded relative w-2/3 sm:w-1/2 max-w-lg mx-auto mb-2'
       "
       role="alert"
     >
@@ -39,7 +39,7 @@
     </div>
 
     <form
-      class="w-3/4 sm:w-1/2 max-w-lg mx-auto p-6 rounded shadow-xl flex flex-col items-end bg-gradient-to-br from-indigo-800 to-blue-800"
+      class="w-full sm:w-3/4 md:w-1/2 max-w-lg mx-auto p-6 rounded shadow-xl flex flex-col items-end bg-gradient-to-br from-indigo-800 to-blue-800"
       name="contact"
       method="POST"
       data-netlify="true"
