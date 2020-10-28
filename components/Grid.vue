@@ -3,7 +3,7 @@
     <h2 class="text-4xl mb-6">Projects</h2>
 
     <!-- Filters Nav -->
-    <ul class="flex mb-8">
+    <ul id="grid-nav" class="bg-white flex mb-8 p-3">
       <li class="mr-3">
         <button
           :class="'btn ' + (filter === 'all' ? 'btn-active' : 'btn-ghost')"
@@ -98,11 +98,29 @@ export default {
   },
   mounted() {
     this.data = shuffle(this.data);
+
+    // get the sticky element
+    const stickyElm = document.getElementById("grid-nav");
+
+    const observer = new IntersectionObserver(
+      ([e]) => e.target.classList.toggle("shadow-md", e.intersectionRatio < 1),
+      { threshold: [1] }
+    );
+
+    observer.observe(stickyElm);
   }
 };
 </script>
 
 <style>
+#grid-nav {
+  position: sticky;
+  top: -1px;
+  z-index: 15;
+  transition: all 0.1s;
+  padding-top: calc(0.75rem + 1px);
+}
+
 .grid-item-thumbnail {
   max-height: 200px;
   object-fit: cover;
