@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Header />
     <Hero />
     <Grid />
     <Contact />
