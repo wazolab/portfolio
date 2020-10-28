@@ -7,9 +7,16 @@
       method="POST"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
+      data-netlify-recaptcha="true"
       @submit.prevent="handleSubmit"
     >
       <input type="hidden" name="form-name" value="contact" />
+      <p class="hidden">
+        <label
+          >Don’t fill this out if you're human:
+          <input v-model="form.honeypot" name="bot-field"
+        /></label>
+      </p>
       <div class="flex flex-wrap -mx-3 mb-4">
         <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
           <label
@@ -52,6 +59,7 @@
         v-model="form.message"
         placeholder="Hi, ..."
       ></textarea>
+      <div data-netlify-recaptcha="true"></div>
       <button
         type="submit"
         class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
@@ -71,7 +79,8 @@ export default {
       form: {
         fullname: "",
         email: "",
-        message: ""
+        message: "",
+        honeypot: null
       }
     };
   },
@@ -87,14 +96,21 @@ export default {
       const axiosConfig = {
         header: { "Content-Type": "application/x-www-form-urlencoded" }
       };
-      axios.post(
-        "/",
-        this.encode({
-          "form-name": "contact",
-          ...this.form
-        }),
-        axiosConfig
-      );
+      axios
+        .post(
+          "/",
+          this.encode({
+            "form-name": "contact",
+            ...this.form
+          }),
+          axiosConfig
+        )
+        .then(res => {
+          console.log(res);
+        })
+        .catch(err => {
+          console.log(err);
+        });
     }
   }
 };
