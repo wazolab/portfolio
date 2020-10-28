@@ -1,0 +1,6 @@
+/* purgecss start ignore */
+@tailwind base;
+@tailwind utilities;
+/* purgecss end ignore */
+
+@tailwind components;

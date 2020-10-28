@@ -1,0 +1,92 @@
+[
+  {
+    "img": "aluna-festival.png",
+    "link": "aluna-festival.fr",
+    "title": "Aluna Festival",
+    "subtitle": "2017 / 2018 / 2019 / 2020",
+    "tags": ["wordpress", "sketch", "amazonS3", "acf", "svg"],
+    "type": "freelance"
+  },
+  {
+    "img": "le-tube-les-bourdaines.png",
+    "link": "le-tube-bourdaines.com",
+    "title": "Le Tube - Les Bourdaines",
+    "tags": ["wordpress", "sketch", "svg", "acf"],
+    "type": "freelance"
+  },
+  {
+    "img": "modjo-production.png",
+    "link": "modjo-production.com",
+    "title": "Modjo Production",
+    "tags": ["wordpress", "sketch", "acf", "svg"],
+    "type": "freelance"
+  },
+  {
+    "img": "olac-festival.png",
+    "link": "olac-festival.fr",
+    "title": "O'Lac Festival",
+    "tags": ["wordpress", "sketch", "svg", "acf"],
+    "type": "freelance"
+  },
+  {
+    "img": "jouvanceau.png",
+    "link": "jouvanceau.com",
+    "title": "Jouvanceau",
+    "tags": ["wordpress", "hotoshop", "svg", "acf"],
+    "type": "freelance"
+  },
+  {
+    "img": "ecotrade.png",
+    "link": "catalyticconverterrecycling.com",
+    "title": "Ecotrade Group",
+    "tags": [
+      "symfony",
+      "php",
+      "js",
+      "stripeApi",
+      "webhook",
+      "cron",
+      "scrum",
+      "b2b",
+      "i18n",
+      "e-commerce"
+    ],
+    "type": "company"
+  },
+  {
+    "img": "tpp.png",
+    "link": "outsourcify.net/portfolio/real-estate-development-promotion-crm",
+    "title": "Thai Property Promotion",
+    "tags": [
+      "vue.js",
+      "nuxt.js",
+      "php",
+      "antd.design",
+      "js",
+      "cron",
+      "i18n",
+      "scrum",
+      "crm"
+    ],
+    "type": "company"
+  },
+  {
+    "img": "xma.png",
+    "link": "outsourcify.net/portfolio/bi-sales-reporting-web-and-mobile-app",
+    "title": "BI Sales Reporting App",
+    "tags": [
+      "vue.js",
+      "nuxt.js",
+      "php",
+      "ant.design",
+      "js",
+      "cron",
+      "i18n",
+      "scrum",
+      "crm",
+      "bi",
+      "chartjs"
+    ],
+    "type": "company"
+  }
+]
