@@ -1,6 +1,6 @@
 <template>
   <div
-    class="HeroWrapper rounded-b-3xl shadow-xl bg-gradient-to-br from-blue-300 to-blue-700 flex items-center"
+    class="hero rounded-b-3xl shadow-xl bg-gradient-to-br from-blue-300 to-blue-700 flex items-center"
   >
     <div
       class="rounded-3xl bg-white w-3/4 sm:w-1/2 max-w-lg mx-auto p-6 shadow-xl text-center"
@@ -36,7 +36,7 @@ export default {};
 </script>
 
 <style>
-.HeroWrapper {
+.hero {
   height: 460px;
 }
 </style>
