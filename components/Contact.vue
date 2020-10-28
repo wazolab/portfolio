@@ -39,12 +39,11 @@
     </div>
 
     <form
-      class="w-3/4 sm:w-1/2 max-w-lg mx-auto p-6 rounded shadow-xl flex flex-col items-center bg-gradient-to-br from-indigo-800 to-blue-800"
+      class="w-3/4 sm:w-1/2 max-w-lg mx-auto p-6 rounded shadow-xl flex flex-col items-end bg-gradient-to-br from-indigo-800 to-blue-800"
       name="contact"
       method="POST"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
-      data-netlify-recaptcha="true"
       @submit.prevent="handleSubmit"
     >
       <input type="hidden" name="form-name" value="contact" />
@@ -96,7 +95,6 @@
         v-model="form.message"
         placeholder="Hi, ..."
       ></textarea>
-      <div class="mb-4" data-netlify-recaptcha="true"></div>
       <button
         type="submit"
         class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
@@ -117,7 +115,7 @@ export default {
         fullname: "",
         email: "",
         message: "",
-        honeypot: ""
+        honeypot: undefined
       },
       showFeedback: false,
       feedback: {
@@ -138,6 +136,7 @@ export default {
       const axiosConfig = {
         header: { "Content-Type": "application/x-www-form-urlencoded" }
       };
+      console.log(this.form);
       axios
         .post(
           "/",
