@@ -2,7 +2,7 @@
   <div id="contact-me" class="container mx-auto p-16">
     <h2 class="text-4xl mb-6">Contact me !</h2>
     <form
-      class="w-3/4 sm:w-1/2 max-w-lg mx-auto p-6 rounded shadow-xl flex flex-col items-end bg-gradient-to-br from-indigo-800 to-blue-800"
+      class="w-3/4 sm:w-1/2 max-w-lg mx-auto p-6 rounded shadow-xl flex flex-col items-center bg-gradient-to-br from-indigo-800 to-blue-800"
       name="contact"
       method="POST"
       data-netlify="true"
@@ -59,7 +59,7 @@
         v-model="form.message"
         placeholder="Hi, ..."
       ></textarea>
-      <div data-netlify-recaptcha="true"></div>
+      <div class="mb-4" data-netlify-recaptcha="true"></div>
       <button
         type="submit"
         class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
