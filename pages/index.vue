@@ -2,13 +2,21 @@
   <div>
     <Header />
     <Hero />
-    <Grid />
+    <Grid :dataSource="projects" />
     <Contact />
   </div>
 </template>
 
 <script>
-export default {};
+import projects from "@/content/projects.json";
+
+export default {
+  data() {
+    return {
+      projects: projects
+    };
+  }
+};
 </script>
 
 <style>

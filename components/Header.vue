@@ -17,7 +17,7 @@
         ></path></svg></a
     ><a
       class="flex items-center hover:text-gray-700 mr-5"
-      href="https://www.linkedin.com/in/no%C3%A9-v-395bba109/"
+      href="https://www.linkedin.com/in/no%C3%A9-v-395bba109"
       target="_blank"
     >
       <svg

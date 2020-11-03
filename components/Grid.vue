@@ -75,39 +75,58 @@
         </a>
       </div>
     </transition-group>
+
+    <!-- Error Message -->
+    <GridEmpty
+      v-if="dataSource && !dataSource.length"
+      message="0 projects listed."
+    />
   </div>
 </template>
 
 <script>
-import projects from "../content/projects.json";
 import { shuffle } from "lodash";
+import GridEmpty from "./GridEmpty";
 
 export default {
+  components: { GridEmpty },
   computed: {
     filteredData() {
-      if (this.filter === "all") return this.data;
+      if (this.filter === "all") return shuffle(this.dataSource);
 
-      return shuffle(this.data.filter(o => o.type === this.filter));
+      return this.shuffle(this.dataSource.filter(o => o.type === this.filter));
     }
+  },
+  props: {
+    dataSource: [Array, Object],
+    default: () => {}
   },
   data() {
     return {
-      data: projects,
       filter: "all"
     };
   },
   mounted() {
-    this.data = shuffle(this.data);
-
-    // get the sticky element
-    const stickyElm = document.getElementById("grid-nav");
-
-    const observer = new IntersectionObserver(
-      ([e]) => e.target.classList.toggle("shadow-md", e.intersectionRatio < 1),
-      { threshold: [1] }
-    );
-
-    observer.observe(stickyElm);
+    // FIXME: Commented for testing purposes
+    // 1. Get nav element and observe it.
+    // 2. Toggle class for sticky behavior.
+    // const stickyElm = document.getElementById("grid-nav");
+    // this.observeElmt(stickyElm);
+  },
+  methods: {
+    // FIXME: Commented for testing purposes
+    // observeElmt(elmt) {
+    //   const options = {
+    //     root: elmt,
+    //     threshold: 1
+    //   };
+    //   const observer = new IntersectionObserver(
+    //     ([e]) =>
+    //       e.target.classList.toggle("shadow-md", e.intersectionRatio < 1),
+    //     options
+    //   );
+    //   observer.observe(elmt);
+    // }
   }
 };
 </script>
