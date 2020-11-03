@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header />
-    <Hero />
+    <Hero title="wazo-lab.io" />
     <Grid :dataSource="projects" />
     <Contact />
   </div>
