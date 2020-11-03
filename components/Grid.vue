@@ -92,9 +92,9 @@ export default {
   components: { GridEmpty },
   computed: {
     filteredData() {
-      if (this.filter === "all") return shuffle(this.dataSource);
+      if (this.filter === "all") return this.dataSource;
 
-      return this.shuffle(this.dataSource.filter(o => o.type === this.filter));
+      return shuffle(this.dataSource.filter(o => o.type === this.filter));
     }
   },
   props: {
@@ -116,14 +116,10 @@ export default {
   methods: {
     // FIXME: Commented for testing purposes
     // observeElmt(elmt) {
-    //   const options = {
-    //     root: elmt,
-    //     threshold: 1
-    //   };
     //   const observer = new IntersectionObserver(
     //     ([e]) =>
     //       e.target.classList.toggle("shadow-md", e.intersectionRatio < 1),
-    //     options
+    //     { threshold: [1] }
     //   );
     //   observer.observe(elmt);
     // }
@@ -138,6 +134,7 @@ export default {
   z-index: 15;
   transition: all 0.1s;
   padding-top: calc(0.75rem + 1px);
+  padding-left: 0;
 }
 
 .grid-item-thumbnail {
