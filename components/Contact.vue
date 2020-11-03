@@ -39,7 +39,7 @@
     </div>
 
     <form
-      class="w-full sm:w-3/4 md:w-1/2 max-w-lg mx-auto p-6 rounded shadow-xl flex flex-col items-end bg-gradient-to-br from-indigo-800 to-blue-800"
+      class="w-full sm:w-3/4 max-w-lg mx-auto p-6 rounded shadow-xl flex flex-col items-end bg-gradient-to-br from-indigo-800 to-blue-800"
       name="contact"
       method="POST"
       data-netlify="true"
