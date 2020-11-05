@@ -1,7 +1,7 @@
 [
   {
     "img": "aluna-festival.png",
-    "link": "aluna-festival.fr",
+    "link": "https://aluna-festival.fr",
     "title": "Aluna Festival",
     "subtitle": "2017 / 2018 / 2019 / 2020",
     "tags": ["wordpress", "sketch", "amazonS3", "acf", "svg"],
@@ -9,35 +9,35 @@
   },
   {
     "img": "le-tube-les-bourdaines.png",
-    "link": "le-tube-bourdaines.com",
+    "link": "https://le-tube-bourdaines.com",
     "title": "Le Tube - Les Bourdaines",
     "tags": ["wordpress", "sketch", "svg", "acf"],
     "type": "freelance"
   },
   {
     "img": "modjo-production.png",
-    "link": "modjo-production.com",
+    "link": "https://modjo-production.com",
     "title": "Modjo Production",
     "tags": ["wordpress", "sketch", "acf", "svg"],
     "type": "freelance"
   },
   {
     "img": "olac-festival.png",
-    "link": "olac-festival.fr",
+    "link": "https://olac-festival.fr",
     "title": "O'Lac Festival",
     "tags": ["wordpress", "sketch", "svg", "acf"],
     "type": "freelance"
   },
   {
     "img": "jouvanceau.png",
-    "link": "jouvanceau.com",
+    "link": "https://jouvanceau.com",
     "title": "Jouvanceau",
     "tags": ["wordpress", "hotoshop", "svg", "acf"],
     "type": "freelance"
   },
   {
     "img": "ecotrade.png",
-    "link": "catalyticconverterrecycling.com",
+    "link": "https://catalyticconverterrecycling.com",
     "title": "Ecotrade Group",
     "tags": [
       "symfony",
@@ -55,7 +55,7 @@
   },
   {
     "img": "tpp.png",
-    "link": "outsourcify.net/portfolio/real-estate-development-promotion-crm",
+    "link": "https://outsourcify.net/portfolio/real-estate-development-promotion-crm",
     "title": "Thai Property Promotion",
     "tags": [
       "vue.js",
@@ -72,7 +72,7 @@
   },
   {
     "img": "xma.png",
-    "link": "outsourcify.net/portfolio/bi-sales-reporting-web-and-mobile-app",
+    "link": "https://outsourcify.net/portfolio/bi-sales-reporting-web-and-mobile-app",
     "title": "BI Sales Reporting App",
     "tags": [
       "vue.js",
