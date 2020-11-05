@@ -5,7 +5,6 @@
     <div
       class="rounded-3xl bg-white w-3/4 sm:w-1/2 max-w-lg mx-auto p-6 shadow-xl text-center"
     >
-      <Logo />
       <!-- TODO: [WL-30] Create fliping avatar
         even: {
           type: [Component, String],
@@ -17,38 +16,27 @@
         }
       -->
 
-      <!-- <div
-        class="w-24 h-24 md:w-32 md:h-32 overflow-hidden relative rounded-full"
-      >
-        <img
-          id="brand-member"
-          class="bg-cover absolute"
-          src="~/assets/images/noe.jpg"
-          alt="Noé Viricel"
-        />
-      </div> -->
+      <img
+        class="w-24 md:w-32 hero-avatar mx-auto mb-6"
+        src="~/assets/images/noe.png"
+        :alt="avatar.alt"
+      />
 
       <h1 class="font-mono text-2xl">
         {{ title }}
       </h1>
 
-      <!-- TODO: Pass array of links -->
-      <div class="mt-4 hidden sm:block">
+      <div class="hero-actions mt-4 hidden sm:flex justify-center">
+        <!-- TODO: Create a Button component -->
         <a
-          href="#projects"
-          target="_self"
-          rel="noopener noreferrer"
-          class="button--green"
+          :href="action.url"
+          :target="action.target"
+          :rel="action.rel"
+          class="button--green mx-2"
+          v-for="(action, index) in actions"
+          :key="index"
         >
-          Projects
-        </a>
-        <a
-          href="#contact-me"
-          target="_self"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          Contact Me
+          {{ action.title }}
         </a>
       </div>
     </div>
@@ -63,29 +51,39 @@ export default {
   props: {
     title: {
       type: String,
-      required: true
+      required: true,
+      validator: string => {
+        return string.length && string.length <= 15;
+      }
+    },
+    avatar: {
+      type: Object,
+      default: () => {
+        return {
+          src: "noe.png",
+          alt: "Noé Viricel"
+        };
+      }
+    },
+    actions: {
+      type: [Array, Object],
+      validator: function(o) {
+        if (o.length <= 5) {
+          if (o.length) {
+            for (let index = 0; index < o.length; index++) {
+              return (
+                o[index].hasOwnProperty("title") &&
+                o[index].hasOwnProperty("url") &&
+                o[index].hasOwnProperty("target") &&
+                o[index].hasOwnProperty("rel")
+              );
+            }
+          }
+        }
+
+        return false;
+      }
     }
-    // links: {
-    //   type: [Array, Object],
-    //   default: () => {
-    //     return {
-    //       title: "",
-    //       url: "",
-    //       target: "",
-    //       rel: ""
-    //     };
-    //   },
-    //   validator: () => {
-    //     const skeleton = [
-    //       {
-    //         title: "",
-    //         url: "",
-    //         target: "",
-    //         rel: ""
-    //       }
-    //     ];
-    //   }
-    // }
   }
 };
 </script>
@@ -94,7 +92,4 @@ export default {
 .hero {
   height: 460px;
 }
-
-/* #brand-member {
-} */
 </style>
